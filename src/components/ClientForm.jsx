@@ -49,36 +49,6 @@ const ClientForm = ({ onClose, onSubmit, editClient = null }) => {
         }
     };
 
-    // Styling components
-    const FormGroup = ({ label, error, children, icon: Icon }) => (
-        <div style={{ marginBottom: '20px' }}>
-            <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: '#475569', marginBottom: '6px' }}>
-                {label} {error && <span style={{ color: '#ef4444' }}>*</span>}
-            </label>
-            <div style={{ position: 'relative' }}>
-                {Icon && (
-                    <div style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#94a3b8' }}>
-                        <Icon size={16} />
-                    </div>
-                )}
-                <div style={{ position: 'relative' }}>
-                    {children}
-                </div>
-            </div>
-            {error && <p style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px' }}>{error}</p>}
-        </div>
-    );
-
-    const inputStyle = (hasIcon) => ({
-        width: '100%',
-        padding: hasIcon ? '10px 14px 10px 40px' : '10px 14px',
-        borderRadius: '8px',
-        border: '1px solid #e2e8f0',
-        fontSize: '14px',
-        transition: 'all 0.2s',
-        backgroundColor: '#fff'
-    });
-
     return (
         <div className="modal-overlay" style={{ backdropFilter: 'blur(4px)', backgroundColor: 'rgba(15, 23, 42, 0.6)' }}>
             <div className="modal-content" style={{ maxWidth: '650px', padding: '0', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}>
@@ -254,5 +224,35 @@ const ClientForm = ({ onClose, onSubmit, editClient = null }) => {
         </div>
     );
 };
+
+// Styling components
+const FormGroup = ({ label, error, children, icon: Icon }) => (
+    <div style={{ marginBottom: '20px' }}>
+        <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: '#475569', marginBottom: '6px' }}>
+            {label} {error && <span style={{ color: '#ef4444' }}>*</span>}
+        </label>
+        <div style={{ position: 'relative' }}>
+            {Icon && (
+                <div style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#94a3b8' }}>
+                    <Icon size={16} />
+                </div>
+            )}
+            <div style={{ position: 'relative' }}>
+                {children}
+            </div>
+        </div>
+        {error && <p style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px' }}>{error}</p>}
+    </div>
+);
+
+const inputStyle = (hasIcon) => ({
+    width: '100%',
+    padding: hasIcon ? '10px 14px 10px 40px' : '10px 14px',
+    borderRadius: '8px',
+    border: '1px solid #e2e8f0',
+    fontSize: '14px',
+    transition: 'all 0.2s',
+    backgroundColor: '#fff'
+});
 
 export default ClientForm;
