@@ -41,9 +41,9 @@ function App() {
     <div className="app-container">
       {/* Sidebar */}
       <div className="sidebar">
-        <div className="sidebar-brand">
-          <img src="/logo.jpeg" alt="Logo" style={{ width: '32px', height: '32px', marginRight: '12px' }} />
-          <span>OSC CRM</span>
+        <div className="sidebar-brand" style={{ display: 'flex', alignItems: 'center', padding: '20px 24px', height: 'auto' }}>
+          <img src="/logo.jpeg" alt="Logo" style={{ width: '50px', height: '50px', marginRight: '12px', borderRadius: '8px', objectFit: 'contain' }} />
+          <span style={{ fontSize: '18px' }}>OSC CRM</span>
         </div>
         <div className="sidebar-nav">
           <a

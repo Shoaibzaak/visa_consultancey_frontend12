@@ -19,8 +19,8 @@ const Login = ({ onLogin }) => {
     <div className="auth-container">
       <div className="auth-card">
         <div className="auth-header">
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
-            <img src="/logo.jpeg" alt="Overseas Study Consultants" style={{ width: '80px', height: '80px' }} />
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '24px' }}>
+            <img src="/logo.jpeg" alt="Overseas Study Consultants" style={{ width: '120px', height: '120px', borderRadius: '12px', objectFit: 'contain', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }} />
           </div>
           <h1 className="auth-title">Overseas Study Consultants</h1>
           <p style={{ color: '#64748b', marginTop: '8px' }}>CRM Admin Portal</p>
