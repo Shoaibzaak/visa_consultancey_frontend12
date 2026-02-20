@@ -5,7 +5,8 @@ import Applications from './pages/Applications';
 import Settings from './pages/Settings';
 import Login from './pages/Login';
 import DocumentVerification from './pages/DocumentVerification';
-import { LayoutDashboard, Users, FileText, Settings as SettingsIcon, LogOut, ShieldCheck } from 'lucide-react';
+import VisaEligibility from './pages/VisaEligibility';
+import { LayoutDashboard, Users, FileText, Settings as SettingsIcon, LogOut, ShieldCheck, Globe } from 'lucide-react';
 
 import Maintenance from './pages/Maintenance';
 
@@ -29,6 +30,7 @@ function App() {
       case 'applications': return <Maintenance />; // Only Applications page is disabled
       case 'settings': return <Settings />;
       case 'document-verification': return <DocumentVerification />;
+      case 'visa-eligibility': return <VisaEligibility />;
       default: return <Dashboard />;
     }
   };
@@ -66,6 +68,13 @@ function App() {
             onClick={(e) => { e.preventDefault(); setCurrentPage('applications'); }}
           >
             <FileText /> Applications
+          </a>
+          <a
+            href="#"
+            className={`nav-item ${currentPage === 'visa-eligibility' ? 'active' : ''}`}
+            onClick={(e) => { e.preventDefault(); setCurrentPage('visa-eligibility'); }}
+          >
+            <Globe /> Visa Eligibility
           </a>
           <a
             href="#"

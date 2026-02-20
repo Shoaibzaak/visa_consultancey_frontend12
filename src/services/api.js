@@ -114,6 +114,21 @@ export const documentFraudAPI = {
     },
 };
 
+// Visa Eligibility Analysis API
+export const visaEligibilityAPI = {
+    /**
+     * Analyze profile for visa eligibility and country recommendations
+     * @param {object} profileData - { qualification, ielts, ageGap, currentAge, specificCountry }
+     * @returns {Promise<object>} Analysis result
+     */
+    analyze: async (profileData) => {
+        return apiRequest('/visa-eligibility/analyze', {
+            method: 'POST',
+            body: JSON.stringify(profileData),
+        });
+    },
+};
+
 // Health check
 export const healthCheck = async () => {
     return apiRequest('/health');
