@@ -73,6 +73,47 @@ export const clientsAPI = {
     },
 };
 
+// Document Fraud Detection API
+export const documentFraudAPI = {
+    /**
+     * Analyze a document for fraud indicators
+     * @param {File} file - The document file to analyze
+     * @param {string} documentType - e.g. 'passport', 'degree', 'visa', 'bank_statement'
+     * @returns {Promise<object>} Analysis result
+     */
+    analyze: async (file, documentType = 'passport') => {
+        try {
+            const formData = new FormData();
+            formData.append('document', file);
+            formData.append('documentType', documentType);
+
+            const response = await fetch(`${API_BASE_URL}/document-fraud/analyze`, {
+                method: 'POST',
+                body: formData,
+                // ⚠️ Do NOT set Content-Type header — browser sets it automatically with boundary
+            });
+
+            let data;
+            try {
+                data = await response.json();
+            } catch {
+                const text = await response.text();
+                throw new Error(`Server returned non-JSON response (${response.status}): ${text.substring(0, 200)}`);
+            }
+
+            if (!response.ok) {
+                console.error('Backend error response:', { status: response.status, data });
+                throw new Error(data.message || data.error || `Server error (${response.status})`);
+            }
+
+            return data;
+        } catch (error) {
+            console.error('Document Fraud API Error:', error);
+            throw error;
+        }
+    },
+};
+
 // Health check
 export const healthCheck = async () => {
     return apiRequest('/health');

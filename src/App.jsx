@@ -4,7 +4,8 @@ import Clients from './pages/Clients';
 import Applications from './pages/Applications';
 import Settings from './pages/Settings';
 import Login from './pages/Login';
-import { LayoutDashboard, Users, FileText, Settings as SettingsIcon, LogOut } from 'lucide-react';
+import DocumentVerification from './pages/DocumentVerification';
+import { LayoutDashboard, Users, FileText, Settings as SettingsIcon, LogOut, ShieldCheck } from 'lucide-react';
 
 import Maintenance from './pages/Maintenance';
 
@@ -27,6 +28,7 @@ function App() {
       case 'clients': return <Clients />;
       case 'applications': return <Maintenance />; // Only Applications page is disabled
       case 'settings': return <Settings />;
+      case 'document-verification': return <DocumentVerification />;
       default: return <Dashboard />;
     }
   };
@@ -64,6 +66,13 @@ function App() {
             onClick={(e) => { e.preventDefault(); setCurrentPage('applications'); }}
           >
             <FileText /> Applications
+          </a>
+          <a
+            href="#"
+            className={`nav-item ${currentPage === 'document-verification' ? 'active' : ''}`}
+            onClick={(e) => { e.preventDefault(); setCurrentPage('document-verification'); }}
+          >
+            <ShieldCheck /> Doc Verification
           </a>
           <a
             href="#"
